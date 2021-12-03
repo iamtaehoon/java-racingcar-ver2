@@ -47,5 +47,9 @@ public class Race {
 
 	}
 
+	public void clearIncorrectValues() {
+		cars.clear();
+	}
+
 	//최종 우승자를 보여주는 메서드.
 }

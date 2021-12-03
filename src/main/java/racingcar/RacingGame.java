@@ -3,6 +3,7 @@ package racingcar;
 import java.util.List;
 
 public class RacingGame {
+	//TODO : try/catch로 다시 입력받는거 InputView에서 처리하면 더 좋겠다. 검증을 어디서하지? 아니면 검증 클래스를 따로 만들거나
 	Race race = new Race();
 	String input;
 
@@ -41,7 +42,7 @@ public class RacingGame {
 				names.stream().forEach(name -> race.participate(new Car(name)));
 				return;
 			} catch (IllegalArgumentException e) {
-				race.cars.clear(); //TODO: 객체가 아니라 메서드로 만들어야 함.
+				race.clearIncorrectValues();
 				OutputView.showErrorMessage(e);
 			}
 		}
