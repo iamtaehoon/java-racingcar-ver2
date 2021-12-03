@@ -1,5 +1,7 @@
 package racingcar;
 
+import static racingcar.Constant.*;
+
 public class Car {
     private final String name;
     private int position = 0;
@@ -14,7 +16,7 @@ public class Car {
         if (name == null || name.isEmpty()) {
             throw new IllegalArgumentException("자동차의 이름으로 공백이 들어갈 수 없다.");
         }
-        if (name.length() > 5) {
+        if (name.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5글자 이하여야 한다.");
         }
         return name;
@@ -22,14 +24,14 @@ public class Car {
 
     public int move(int randomValue) {
         validateIsInRange(randomValue);
-        if (randomValue >= 4) {
+        if (randomValue >= MOVING_CAR_STANDARD) {
             position += 1;
         }
         return position;
     }
 
     private void validateIsInRange(int randomValue) {
-        if (randomValue < 0 || randomValue > 9) {
+        if (randomValue < RANDOM_MIN_VALUE || randomValue > RANDOM_MAX_VALUE) {
             throw new IllegalArgumentException("Car 객체의 move 메서드의 인자는 해당 값이 나올 수 없습니다.(0~9 사이 랜덤값)");
         }
     }

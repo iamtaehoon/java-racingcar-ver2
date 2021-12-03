@@ -1,6 +1,7 @@
 package racingcar;
 
 import static org.assertj.core.api.Assertions.*;
+import static racingcar.Constant.*;
 
 import java.util.ArrayList;
 
@@ -71,9 +72,9 @@ class CarTest {
 		Car car = new Car("pobi");
 		ArrayList<Integer> randomValues = new ArrayList<>();
 		for (int i = 0; i < 1000; i++) { //충분히 큰 수
-			randomValues.add(Randoms.pickNumberInRange(0, 9));
+			randomValues.add(Randoms.pickNumberInRange(RANDOM_MIN_VALUE, RANDOM_MAX_VALUE));
 		}
-		int result = (int)randomValues.stream().filter(randomValue -> randomValue >= 4).count();
+		int result = (int)randomValues.stream().filter(randomValue -> randomValue >= MOVING_CAR_STANDARD).count();
 		randomValues.stream().forEach(randomValue -> car.move(randomValue));
 		assertThat(car.getMovingDistance()).isEqualTo(result);
 	}

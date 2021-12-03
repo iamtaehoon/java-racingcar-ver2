@@ -1,14 +1,16 @@
 package racingcar;
 
+import static racingcar.Constant.*;
+
 public class Round {
 	int repeatCnt;
 
 	public Round(String input) {
-		if (!input.matches("[+-]?\\d*(\\.\\d+)?")) {
+		if (!input.matches(NUMBER_JUDGE_REGEX)) {
 			throw new IllegalArgumentException("반복 횟수는 숫자가 입력되어야 합니다.");
 		}
 		repeatCnt = Integer.parseInt(input);
-		if (repeatCnt <= 0) {
+		if (repeatCnt < MIN_REPEAT_CNT) {
 			throw new IllegalArgumentException("반복 횟수는 1 이상이어야 합니다.");
 		}
 		this.repeatCnt = repeatCnt;
