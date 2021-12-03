@@ -12,11 +12,22 @@ public class RacingGame {
 	String input;
 
 	public void start() {
+		initializeGame();
+	}
+
+	private void initializeGame() {
+		inputCarsName();
+		inputRoundCnt();
+	}
+
+	private void inputRoundCnt() {
+		input = InputView.inputRoundCnt();
+		race.repeatGamePhase(new Round(input));
+	}
+
+	private void inputCarsName() {
 		input = InputView.inputCarsName();
 		List<String> names = StringUtils.parseByComma(input);
 		names.stream().forEach(name -> race.participate(new Car(name)));
-
-		input = InputView.inputRoundCnt();
-		race.repeatGamePhase(new Round(input));
 	}
 }
