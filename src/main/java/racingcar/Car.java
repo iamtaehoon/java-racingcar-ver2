@@ -34,5 +34,9 @@ public class Car {
         }
     }
 
+    public int getMovingDistance() {
+        return position;
+    }
+
     // 추가 기능 구현
 }
