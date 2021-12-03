@@ -14,10 +14,10 @@ public class StringUtils {
 	}
 
 	public static String showMovingmark(int movingDistance) {
-		String string = ""; //TODO : 버퍼로 대체하기
+		StringBuffer sb = new StringBuffer("");
 		for (int i = 0; i < movingDistance; i++) {
-			string += "-";
+			sb.append("-");
 		}
-		return string;
+		return sb.toString();
 	}
 }

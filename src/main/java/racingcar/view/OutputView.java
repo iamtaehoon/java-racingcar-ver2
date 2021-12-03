@@ -16,14 +16,14 @@ public class OutputView {
 	}
 
 	public static void showWinners(List<Car> winners) {
-		String string = "최종 우승자 : ";
+		StringBuffer sb = new StringBuffer("최종 우승자 : ");
 		for (Car winner : winners) {
-			string += winner.getName();
+			sb.append(winner.getName());
 			if (winner != winners.get(winners.size() - 1)) {
-				string += ", ";
+				sb.append(", ");
 			}
 		}
-		System.out.println(string);
+		System.out.println(sb.toString());
 	}
 
 	public static void showErrorMessage(IllegalArgumentException e) {
