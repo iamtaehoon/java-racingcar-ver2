@@ -2,6 +2,8 @@ package racingcar;
 
 import java.util.ArrayList;
 
+import camp.nextstep.edu.missionutils.Randoms;
+
 public class Race {
 	ArrayList<Car> cars = new ArrayList<>();
 
@@ -16,5 +18,11 @@ public class Race {
 		ArrayList<String> allCarsName = new ArrayList<>();
 		cars.stream().forEach(car -> allCarsName.add(car.getName()));
 		return allCarsName;
+	}
+
+	public void repeatGamePhase(int inputValue) {
+		for (int i = 0; i < inputValue; i++) {
+			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
+		}
 	}
 }
