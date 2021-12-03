@@ -24,4 +24,8 @@ public class OutputView {
 		}
 		System.out.println(string);
 	}
+
+	public static void showErrorMessage(IllegalArgumentException e) {
+		System.out.println("[ERROR] : " + e.getMessage());
+	}
 }

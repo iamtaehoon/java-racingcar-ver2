@@ -12,8 +12,16 @@ public class RacingGame {
 	}
 
 	private void playGame() {
-		race.repeatGamePhase(new Round(input));
-		race.showWinners();
+		while (true) {
+			try {
+				race.repeatGamePhase(new Round(input));
+				race.showWinners();
+				return;
+			} catch (IllegalArgumentException e) {
+				OutputView.showErrorMessage(e);
+				inputRoundCnt();
+			}
+		}
 	}
 
 	private void initializeGame() {
@@ -26,8 +34,16 @@ public class RacingGame {
 	}
 
 	private void inputCarsName() {
-		input = InputView.inputCarsName();
-		List<String> names = StringUtils.parseByComma(input);
-		names.stream().forEach(name -> race.participate(new Car(name)));
+		while (true) {
+			try {
+				input = InputView.inputCarsName();
+				List<String> names = StringUtils.parseByComma(input);
+				names.stream().forEach(name -> race.participate(new Car(name)));
+				return;
+			} catch (IllegalArgumentException e) {
+				race.cars.clear(); //TODO: 객체가 아니라 메서드로 만들어야 함.
+				OutputView.showErrorMessage(e);
+			}
+		}
 	}
 }
