@@ -28,4 +28,8 @@ public class OutputView {
 	public static void showErrorMessage(IllegalArgumentException e) {
 		System.out.println("[ERROR] : " + e.getMessage());
 	}
+
+	public static void showSentenceBeforeGame() {
+		System.out.println("\n실행 결과");
+	}
 }

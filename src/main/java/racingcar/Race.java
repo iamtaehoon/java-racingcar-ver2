@@ -24,8 +24,7 @@ public class Race {
 	}
 
 	public void repeatGamePhase(Round round) {
-
-		System.out.println("\n실행 결과");
+		OutputView.showSentenceBeforeGame();
 		for (int i = 0; i < round.getRepeatCnt(); i++) {
 			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
 			OutputView.showThisPhaseResult(cars);
