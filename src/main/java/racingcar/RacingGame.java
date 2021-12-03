@@ -1,11 +1,6 @@
 package racingcar;
 
-import static org.assertj.core.api.Assertions.*;
-
-import java.util.Arrays;
 import java.util.List;
-
-import camp.nextstep.edu.missionutils.Randoms;
 
 public class RacingGame {
 	Race race = new Race();
@@ -17,6 +12,8 @@ public class RacingGame {
 	}
 
 	private void playGame() {
+		race.repeatGamePhase(new Round(input));
+		race.showWinners();
 	}
 
 	private void initializeGame() {
@@ -26,7 +23,6 @@ public class RacingGame {
 
 	private void inputRoundCnt() {
 		input = InputView.inputRoundCnt();
-		race.repeatGamePhase(new Round(input));
 	}
 
 	private void inputCarsName() {

@@ -1,6 +1,9 @@
 package racingcar;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.NoSuchElementException;
+import java.util.stream.Collectors;
 
 import camp.nextstep.edu.missionutils.Randoms;
 
@@ -29,7 +32,20 @@ public class Race {
 		}
 	}
 
+	public void showWinners() {
+		List<Car> winners = findWinner();
+		OutputView.showWinners(winners);
 
+	}
+
+	private List<Car> findWinner() {
+		int maxDistance
+			= cars.stream().mapToInt(car -> car.getMovingDistance()).max().orElseThrow(NoSuchElementException::new);
+		return cars.stream()
+			.filter(car -> car.getMovingDistance() == maxDistance)
+			.collect(Collectors.toList());
+
+	}
 
 	//최종 우승자를 보여주는 메서드.
 }
