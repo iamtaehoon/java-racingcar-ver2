@@ -34,25 +34,25 @@ class RaceTest {
 	}
 
 	@ParameterizedTest
-	@ValueSource(ints = {1,20,100,2})
-	void 입력받는_횟수만큼_반복(int round) { //검증 어떻게 하지.... 문제가 안생겼다는 게 검증이 된건가,.?
+	@ValueSource(strings = {"1","20","100","2"})
+	void 입력받는_횟수만큼_반복(String round) { //검증 어떻게 하지.... 문제가 안생겼다는 게 검증이 된건가,.?
 		Race race = new Race();
 		String[] names = {"pobi", "car2", "3car", "kimth"};
 		for (String name : names) {
 			race.participate(new Car(name));
 		}
-		race.repeatGamePhase(round);
+		race.repeatGamePhase(new Round(round));
 	}
 
 	@ParameterizedTest
-	@ValueSource(ints = {-1,-20,-100,-2,0})
-	void 반복횟수를_음수_혹은_0을_입력받은_경우(int round) {
+	@ValueSource(strings = {"-1","-20","-100","-2","0"})
+	void 반복횟수를_음수_혹은_0을_입력받은_경우(String round) {
 		Race race = new Race();
 		String[] names = {"pobi", "car2", "3car", "kimth"};
 		for (String name : names) {
 			race.participate(new Car(name));
 		}
-		assertThatThrownBy(() -> race.repeatGamePhase(round)).isInstanceOf(IllegalArgumentException.class)
+		assertThatThrownBy(() -> race.repeatGamePhase(new Round(round))).isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("반복 횟수는 1 이상이어야 합니다.");
 	}
 

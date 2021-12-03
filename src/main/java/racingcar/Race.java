@@ -20,11 +20,8 @@ public class Race {
 		return allCarsName;
 	}
 
-	public void repeatGamePhase(int inputValue) {
-		if (inputValue <= 0) {
-			throw new IllegalArgumentException("반복 횟수는 1 이상이어야 합니다.");
-		}
-		for (int i = 0; i < inputValue; i++) {
+	public void repeatGamePhase(Round round) {
+		for (int i = 0; i < round.getRepeatCnt(); i++) {
 			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
 			// 시도가 끝난 뒤 자동차들이 움직인 거리를 보여줘야 함.
 		}
