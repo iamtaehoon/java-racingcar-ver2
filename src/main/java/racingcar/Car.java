@@ -42,5 +42,11 @@ public class Car {
         return name;
     }
 
-    // 추가 기능 구현
+    public boolean equals(Object obj) {
+        Car temp = (Car) obj;
+        if (temp.getName() == this.getName()) {
+            return true;
+        }
+        return false;
+    }
 }

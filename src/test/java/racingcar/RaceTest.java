@@ -4,6 +4,7 @@ import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
@@ -22,5 +23,13 @@ class RaceTest {
 		ArrayList<String> allCarsName = race.showAllCarName();
 		assertThat(allCarsName).containsExactly("pobi", "car2", "3car", "kimth");
 		assertThat(allCarsName).hasSize(4);
+	}
+
+	@Test
+	void 참가_자동차_이름_중복() {
+		Race race = new Race();
+		String[] names = {"pobi", "car2", "3car", "kimth", "pobi", "qwer"};
+		assertThatThrownBy(() -> Arrays.stream(names).forEach(name -> race.participate(new Car(name))))
+			.isInstanceOf(IllegalArgumentException.class).hasMessageContaining("자동차의 이름은 중복될 수 없습니다.");
 	}
 }

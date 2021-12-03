@@ -6,6 +6,9 @@ public class Race {
 	ArrayList<Car> cars = new ArrayList<>();
 
 	public void participate(Car car) {
+		if (cars.contains(car)) {
+			throw new IllegalArgumentException("자동차의 이름은 중복될 수 없습니다.");
+		}
 		cars.add(car);
 	}
 
