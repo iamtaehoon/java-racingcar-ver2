@@ -21,6 +21,9 @@ public class Race {
 	}
 
 	public void repeatGamePhase(int inputValue) {
+		if (inputValue <= 0) {
+			throw new IllegalArgumentException("반복 횟수는 1 이상이어야 합니다.");
+		}
 		for (int i = 0; i < inputValue; i++) {
 			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
 		}

@@ -43,4 +43,17 @@ class RaceTest {
 		}
 		race.repeatGamePhase(round);
 	}
+
+	@ParameterizedTest
+	@ValueSource(ints = {-1,-20,-100,-2,0})
+	void 반복횟수를_음수_혹은_0을_입력받은_경우(int round) {
+		Race race = new Race();
+		String[] names = {"pobi", "car2", "3car", "kimth"};
+		for (String name : names) {
+			race.participate(new Car(name));
+		}
+		assertThatThrownBy(() -> race.repeatGamePhase(round)).isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("반복 횟수는 1 이상이어야 합니다.");
+
+	}
 }
