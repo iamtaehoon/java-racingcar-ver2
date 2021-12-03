@@ -22,4 +22,14 @@ class CarTest {
 			.isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("자동차의 이름은 5글자 이하여야 한다.");
 	}
+
+	@ParameterizedTest
+	@ValueSource(strings = {""," "})
+	@DisplayName("자동차 이름으로 null값, 혹은 공백이 들어갈 수 없다.")
+	void 차_이름_공백_불가(String name) {
+		assertThatThrownBy(() -> new Car(name))
+			.isInstanceOf(IllegalArgumentException.class)
+			.hasMessageContaining("자동차의 이름으로 공백이 들어갈 수 없다.");
+
+	}
 }
