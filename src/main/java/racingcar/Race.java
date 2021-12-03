@@ -21,17 +21,15 @@ public class Race {
 	}
 
 	public void repeatGamePhase(Round round) {
+
 		System.out.println("\n실행 결과");
 		for (int i = 0; i < round.getRepeatCnt(); i++) {
 			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
-			showThisPhaseResult();
+			OutputView.showThisPhaseResult(cars);
 		}
 	}
 
-	private void showThisPhaseResult() {
-		cars.stream().forEach(car -> System.out.println(car.getName() + " : " + car.getMovingDistance()));
-		System.out.println();
-	}
+
 
 	//최종 우승자를 보여주는 메서드.
 }
