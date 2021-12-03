@@ -26,6 +26,9 @@ public class Race {
 		}
 		for (int i = 0; i < inputValue; i++) {
 			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
+			// 시도가 끝난 뒤 자동차들이 움직인 거리를 보여줘야 함.
 		}
 	}
+
+	//최종 우승자를 보여주는 메서드.
 }

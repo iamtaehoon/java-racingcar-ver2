@@ -54,6 +54,8 @@ class RaceTest {
 		}
 		assertThatThrownBy(() -> race.repeatGamePhase(round)).isInstanceOf(IllegalArgumentException.class)
 			.hasMessageContaining("반복 횟수는 1 이상이어야 합니다.");
-
 	}
+
+	//우승자를 반환하는 로직을 어떻게 검사하지? Car 상속받는 객체를 만들어서 그 객체는 position을 내가 설정해줄 수 있게 하면 되나?
+	//테스트용 상속받는 객체를 만들어도 되나? 일단 keep
 }

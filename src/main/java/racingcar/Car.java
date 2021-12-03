@@ -44,7 +44,7 @@ public class Car {
 
     public boolean equals(Object obj) {
         Car temp = (Car) obj;
-        if (temp.getName() == this.getName()) {
+        if (temp.getName().equals(this.getName())) {
             return true;
         }
         return false;
