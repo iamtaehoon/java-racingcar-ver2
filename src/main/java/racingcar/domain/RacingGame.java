@@ -1,6 +1,10 @@
-package racingcar;
+package racingcar.domain;
 
 import java.util.List;
+
+import racingcar.view.InputView;
+import racingcar.view.OutputView;
+import racingcar.StringUtils;
 
 public class RacingGame {
 	Race race = new Race();

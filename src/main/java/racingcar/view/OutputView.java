@@ -1,13 +1,14 @@
-package racingcar;
+package racingcar.view;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.StringUtils;
+import racingcar.domain.Car;
 
 public class OutputView {
 
-	static void showThisPhaseResult(ArrayList<Car> cars) {
+	public static void showThisPhaseResult(ArrayList<Car> cars) {
 		cars.stream()
 			.forEach(
 				car -> System.out.println(car.getName() + " : " + StringUtils.showMovingmark(car.getMovingDistance())));

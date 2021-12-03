@@ -11,6 +11,7 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import camp.nextstep.edu.missionutils.Randoms;
+import racingcar.domain.Car;
 
 class CarTest {
 	@ParameterizedTest
