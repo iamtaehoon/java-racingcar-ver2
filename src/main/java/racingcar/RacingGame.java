@@ -13,6 +13,10 @@ public class RacingGame {
 
 	public void start() {
 		initializeGame();
+		playGame();
+	}
+
+	private void playGame() {
 	}
 
 	private void initializeGame() {

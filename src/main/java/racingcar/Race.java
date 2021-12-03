@@ -21,10 +21,16 @@ public class Race {
 	}
 
 	public void repeatGamePhase(Round round) {
+		System.out.println("\n실행 결과");
 		for (int i = 0; i < round.getRepeatCnt(); i++) {
 			cars.stream().forEach(car -> car.move(Randoms.pickNumberInRange(0, 9)));
-			// 시도가 끝난 뒤 자동차들이 움직인 거리를 보여줘야 함.
+			showThisPhaseResult();
 		}
+	}
+
+	private void showThisPhaseResult() {
+		cars.stream().forEach(car -> System.out.println(car.getName() + " : " + car.getMovingDistance()));
+		System.out.println();
 	}
 
 	//최종 우승자를 보여주는 메서드.
