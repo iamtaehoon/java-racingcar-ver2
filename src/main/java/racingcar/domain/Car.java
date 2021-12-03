@@ -12,13 +12,22 @@ public class Car {
     }
 
     private String validate(String name) {
-        name = name.trim();
-        if (name == null || name.isEmpty()) {
+        name = removeBlank(name);
+        if (isNull(name)) {
             throw new IllegalArgumentException("자동차의 이름으로 공백이 들어갈 수 없다.");
         }
         if (name.length() > CAR_NAME_MAX_LENGTH) {
             throw new IllegalArgumentException("자동차의 이름은 5글자 이하여야 한다.");
         }
+        return name;
+    }
+
+    private boolean isNull(String name) {
+        return name == null || name.isEmpty();
+    }
+
+    private String removeBlank(String name) {
+        name = name.trim();
         return name;
     }
 
